@@ -26,7 +26,6 @@ public class ProdutoService {
     }
     
     public List<Produto> listar (){
-        dao.consultarLista("produto.listar");
-        return null;
+        return dao.consultarLista("produto.listar");
     }
 }

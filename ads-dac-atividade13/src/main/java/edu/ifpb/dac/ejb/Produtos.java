@@ -3,8 +3,8 @@ package edu.ifpb.dac.ejb;
 import edu.ifpb.dac.Produto;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.enterprise.event.Observes;
-import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
@@ -17,7 +17,7 @@ public class Produtos {
 
     private List<Produto> produtos = new ArrayList<>();
     private Produto destaque;
-    @Inject
+    @EJB
     private ProdutoService service;
 
     public void listener (@Observes Produto produto){
