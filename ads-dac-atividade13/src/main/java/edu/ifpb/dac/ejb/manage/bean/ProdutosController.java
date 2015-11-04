@@ -16,8 +16,6 @@ import javax.inject.Named;
 @SessionScoped
 public class ProdutosController implements Serializable{
 
-//    private String nome;
-//    private BigDecimal preco;
     private Produto produto;
     @EJB
     private ProdutoService service;    
@@ -26,29 +24,11 @@ public class ProdutosController implements Serializable{
         produto=new Produto();
     }
     
-    
-    
     public void criarProduto (){
-//        Produto produto = new Produto(nome, preco);
         service.salvar(produto);
+        produto=new Produto();
     }
     
-//    public String getNome() {
-//        return nome;
-//    }
-//
-//    public void setNome(String nome) {
-//        this.nome = nome;
-//    }
-//
-//    public BigDecimal getPreco() {
-//        return preco;
-//    }
-//
-//    public void setPreco(BigDecimal preco) {
-//        this.preco = preco;
-//    }
-
     public Produto getProduto() {
         return produto;
     }

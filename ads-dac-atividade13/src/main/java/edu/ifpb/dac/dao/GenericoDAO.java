@@ -24,7 +24,7 @@ public class GenericoDAO<C, T> {
 
     @PersistenceContext
     private EntityManager entityManager;
-
+    
     public void salvar(T t) {
         entityManager.persist(t);
     }

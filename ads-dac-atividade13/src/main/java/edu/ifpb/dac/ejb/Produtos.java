@@ -4,8 +4,10 @@ import edu.ifpb.dac.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Startup;
 import javax.enterprise.event.Observes;
-import javax.inject.Singleton;
+import javax.ejb.Singleton;
 
 /**
  *
@@ -13,6 +15,8 @@ import javax.inject.Singleton;
  * @version 0.1
  */
 @Singleton
+@Startup
+@LocalBean
 public class Produtos {
 
     private List<Produto> produtos = new ArrayList<>();
