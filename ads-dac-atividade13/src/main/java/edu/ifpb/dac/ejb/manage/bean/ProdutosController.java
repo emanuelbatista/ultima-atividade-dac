@@ -4,8 +4,8 @@ import edu.ifpb.dac.Produto;
 import edu.ifpb.dac.ejb.ProdutoService;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -19,7 +19,7 @@ public class ProdutosController implements Serializable{
 
     private String nome;
     private BigDecimal preco;
-    @Inject
+    @EJB
     private ProdutoService service;    
     
     public void criarProduto (){

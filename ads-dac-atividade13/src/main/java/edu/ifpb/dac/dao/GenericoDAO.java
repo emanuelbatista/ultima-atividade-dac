@@ -43,7 +43,7 @@ public class GenericoDAO<C, T> {
 
     public List<T> consultarLista(String nameQuery, Map<String, Object> propriedades) {
         Query query = entityManager.createNamedQuery(nameQuery);
-        Optional<Map<String, Object>> opt=Optional.of(propriedades);
+        Optional<Map<String, Object>> opt=Optional.ofNullable(propriedades);
         opt.ifPresent((t) -> {
             t.forEach((x,y)->{
                 query.setParameter(x, y);
