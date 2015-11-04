@@ -20,7 +20,7 @@ public class ProdutosController implements Serializable{
     private String nome;
     private BigDecimal preco;
     @Inject
-    private ProdutoService service;
+    private ProdutoService service;    
     
     public void criarProduto (){
         Produto produto = new Produto(nome, preco);

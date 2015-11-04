@@ -1,2 +1,7 @@
 edu/ifpb/dac/Pedido.class
+edu/ifpb/dac/ejb/manage/bean/CarrinhoController.class
 edu/ifpb/dac/Produto.class
+edu/ifpb/dac/ejb/ProdutoService.class
+edu/ifpb/dac/ejb/Carrinho.class
+edu/ifpb/dac/ejb/manage/bean/ProdutosController.class
+edu/ifpb/dac/ejb/Produtos.class
