@@ -3,6 +3,7 @@ package edu.ifpb.dac.ejb;
 import edu.ifpb.dac.Produto;
 import edu.ifpb.dac.dao.GenericoDAO;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ public class ProdutoService {
 
     @Inject
     private Event<Produto> evento;
-    @Inject
+    @EJB
     private GenericoDAO<Integer,Produto> dao;
     
     public void salvar(Produto produto){
