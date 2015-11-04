@@ -1,6 +1,7 @@
 package edu.ifpb.dac.ejb;
 
 import edu.ifpb.dac.Produto;
+import edu.ifpb.dac.dao.GenericoDAO;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -16,16 +17,16 @@ public class ProdutoService {
 
     @Inject
     private Event<Produto> evento;
-    
-//    TODO: criar DAO de produto
+    @Inject
+    private GenericoDAO<Integer,Produto> dao;
     
     public void salvar(Produto produto){
-//        TODO: chamar método do DAO para salvar
+        dao.salvar(produto);
         evento.fire(produto);
     }
     
     public List<Produto> listar (){
-//        TODO: chamar método DAO listar
+        dao.consultarLista("produto.listar");
         return null;
     }
 }

@@ -8,8 +8,6 @@ package edu.ifpb.dac.dao;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -43,7 +41,7 @@ public class GenericoDAO<C, T> {
         return entityManager.find(clazz, c);
     }
 
-    public List<T> consultarLista(Class<T> clazz, String nameQuery, Map<String, Object> propriedades) {
+    public List<T> consultarLista(String nameQuery, Map<String, Object> propriedades) {
         Query query = entityManager.createNamedQuery(nameQuery);
         Optional<Map<String, Object>> opt=Optional.of(propriedades);
         opt.ifPresent((t) -> {
@@ -52,5 +50,8 @@ public class GenericoDAO<C, T> {
             });
         });
         return query.getResultList();
+    }
+    public List<T> consultarLista(String nameQuery) {
+        return consultarLista(nameQuery, null);
     }
 }

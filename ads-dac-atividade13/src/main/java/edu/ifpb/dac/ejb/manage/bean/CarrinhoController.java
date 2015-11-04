@@ -3,8 +3,8 @@ package edu.ifpb.dac.ejb.manage.bean;
 import edu.ifpb.dac.Produto;
 import edu.ifpb.dac.ejb.Carrinho;
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -16,7 +16,7 @@ import javax.inject.Named;
 @SessionScoped
 public class CarrinhoController implements Serializable{
 
-    @Inject
+    @EJB
     private Carrinho carrinho;
     private Produto produto;
     

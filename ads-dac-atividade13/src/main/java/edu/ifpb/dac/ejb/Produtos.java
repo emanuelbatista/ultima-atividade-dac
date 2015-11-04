@@ -21,7 +21,6 @@ public class Produtos {
     private ProdutoService service;
 
     public void listener (@Observes Produto produto){
-        System.out.println(produto);
         produtos = service.listar();
     }
     

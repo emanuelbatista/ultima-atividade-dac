@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Ricardo Job
  */
 @Entity
+@NamedQueries(@NamedQuery(name = "produto.listar",query = "SELECT p FROM Produto p"))
 public class Produto implements Serializable {
 
     @Id
