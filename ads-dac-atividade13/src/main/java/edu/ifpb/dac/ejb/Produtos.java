@@ -16,14 +16,13 @@ import javax.inject.Singleton;
 public class Produtos {
 
     private List<Produto> produtos = new ArrayList<>();
-    private Produto destaque;
     @EJB
     private ProdutoService service;
 
-    public void listener (@Observes Produto produto){
+    public void listener(@Observes Produto produto) {
         produtos = service.listar();
     }
-    
+
     public List<Produto> getProdutos() {
         return produtos;
     }
@@ -33,11 +32,7 @@ public class Produtos {
     }
 
     public Produto getDestaque() {
-        return destaque;
+        return produtos.get(0);
     }
 
-    public void setDestaque(Produto destaque) {
-        this.destaque = destaque;
-    }
-    
 }

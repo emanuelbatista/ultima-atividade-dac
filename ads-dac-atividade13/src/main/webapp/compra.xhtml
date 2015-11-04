@@ -3,10 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Módulo de compras</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        Produto em destaque: Nome: <h:outputText value="#{carrinhoController.produtoDestaque.descricao}" />, Preço <h:outputText value="#{carrinhoController.produtoDestaque.preco}" />
+        <h:outputLink value="index.xhtml">Ir para cadastro de produtos</h:outputLink>
     </h:body>
 </html>
 
