@@ -8,8 +8,8 @@
     <h:body>
         
         <h:form>
-            Nome:<h:inputText value="#{produtosController.nome}"/>
-            Preço: <h:inputText value="#{produtosController.preco}"/>
+            Nome:<h:inputText value="#{produtosController.produto.descricao}"/>
+            Preço: <h:inputText value="#{produtosController.produto.preco}"/>
             <h:commandButton action="#{produtosController.criarProduto()}" />
         </h:form>
         <h:outputLink value="compra" />
