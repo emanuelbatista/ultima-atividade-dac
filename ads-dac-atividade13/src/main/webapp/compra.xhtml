@@ -1,13 +1,57 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Módulo de compras</title>
-    </h:head>
-    <h:body>
-        Produto em destaque: Nome: <h:outputText value="#{carrinhoController.produtoDestaque.descricao}" />, Preço <h:outputText value="#{carrinhoController.produtoDestaque.preco}" />
-        <h:outputLink value="index.xhtml">Ir para cadastro de produtos</h:outputLink>
-    </h:body>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>Módulo de compras</title>        
+    </head>
+    <body>
+        <h2><b>Produto em destaque: </b> <h:outputText value="#{carrinhoController.produtoDestaque.descricao}" />, por apenas <h:outputText value="#{carrinhoController.produtoDestaque.preco}" /></h2>
+        <f:view>
+            <h4>Produtos disponíveis:</h4>
+            <h:form>
+                <h:dataTable value="#{carrinhoController.produtos}"
+                             var="p" 
+                             border="3">
+                    <h:column id="column1">
+                        <f:facet name="header">
+                            <h:outputText value="Produto" />                   
+                        </f:facet>
+                        <h:outputText value="#{p}" />
+                    </h:column>
+                    <h:column id="column2">
+                        <f:facet name="header">
+                            <h:outputText value="Adicionar" />                   
+                        </f:facet>
+                        <h:commandButton value="Adicionar" action="#{carrinhoController.addProduto(p)}"/>
+                    </h:column>                    
+                </h:dataTable>
+            </h:form>
+            <h4>Produtos no carrinho</h4>
+            <h:form>
+                <h:dataTable value="#{carrinhoController.produtosNoCarrinho}"
+                             var="p" 
+                             border="3">
+                    <h:column id="column1">
+                        <f:facet name="header">
+                            <h:outputText value="Produto" />                   
+                        </f:facet>
+                        <h:outputText value="#{p}" />
+                    </h:column>
+                    <h:column id="column2">
+                        <f:facet name="header">
+                            <h:outputText value="Remover" />                   
+                        </f:facet>
+                        <h:commandButton value="Remover" action="#{carrinhoController.removeProduto(p)}"/>
+                    </h:column>                    
+                </h:dataTable>
+            </h:form>
+        </f:view> 
+
+
+    </body>
 </html>
 

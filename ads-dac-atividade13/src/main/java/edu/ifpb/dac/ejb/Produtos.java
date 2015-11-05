@@ -36,6 +36,8 @@ public class Produtos {
     }
 
     public Produto getDestaque() {
+        if (produtos.size() < 1)
+            produtos = service.listar();
         return produtos.get(0);
     }
 
