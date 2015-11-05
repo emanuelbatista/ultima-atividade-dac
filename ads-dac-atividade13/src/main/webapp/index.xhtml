@@ -6,10 +6,11 @@
         <title>DAC-Commerce</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:outputText value="Cadastro de produtos" />
+        <h:form>            
             Nome:<h:inputText value="#{produtosController.produto.descricao}"/>
             Preço: <h:inputText value="#{produtosController.produto.preco}"/>
-            <h:commandButton action="#{produtosController.criarProduto()}" />
+            <h:commandButton action="#{produtosController.criarProduto()}" value="Cadastrar"/>
         </h:form>
         <h:outputLink value="compra.xhtml" >Ir para compras</h:outputLink>
     </h:body>
