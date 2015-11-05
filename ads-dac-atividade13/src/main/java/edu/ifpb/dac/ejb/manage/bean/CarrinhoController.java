@@ -5,7 +5,6 @@ import edu.ifpb.dac.ejb.Carrinho;
 import edu.ifpb.dac.ejb.Produtos;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -25,6 +24,10 @@ public class CarrinhoController implements Serializable{
     private String mensagem;
     @EJB
     private Produtos produtosDaBaseDeDados;
+    
+    public String iniciarSessao (){
+        return "compra.xhtml";
+    }
     
     public String addProduto(Produto produto){
         carrinho.addProduto(produto);
@@ -65,7 +68,7 @@ public class CarrinhoController implements Serializable{
         return produtosDaBaseDeDados.getProdutos();
     }
     
-    public Set<Produto> getProdutosNoCarrinho(){
+    public List<Produto> getProdutosNoCarrinho(){
         return carrinho.getProdutosDoUsuario();
     }
 }

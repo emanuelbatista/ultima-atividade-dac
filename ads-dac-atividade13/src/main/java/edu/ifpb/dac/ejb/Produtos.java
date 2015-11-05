@@ -28,6 +28,8 @@ public class Produtos {
     }
 
     public List<Produto> getProdutos() {
+        if (produtos == null || produtos.size() < 1)
+            produtos = service.listar();
         return produtos;
     }
 
