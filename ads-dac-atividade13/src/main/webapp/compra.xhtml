@@ -10,6 +10,7 @@
     </head>
     <body>
         <h2><b>Produto em destaque: </b> <h:outputText value="#{carrinhoController.produtoDestaque.descricao}" />, por apenas <h:outputText value="#{carrinhoController.produtoDestaque.preco}" /></h2>
+        <h:outputText value="#{carrinhoController.mensagem}"/>
         <f:view>
             <h4>Produtos disponíveis:</h4>
             <h:form>
@@ -48,6 +49,8 @@
                         <h:commandButton value="Remover" action="#{carrinhoController.removeProduto(p)}"/>
                     </h:column>                    
                 </h:dataTable>
+                <h:commandButton value="Cancelar pedido" action="#{carrinhoController.cancelarPedido()}"/>
+                <h:commandButton value="Confirmar pedido" action="#{carrinhoController.confirmarPedido()}"/>
             </h:form>
         </f:view> 
 

@@ -22,11 +22,13 @@ public class CarrinhoController implements Serializable{
     @EJB
     private Carrinho carrinho;
     private Produto produto;
+    private String mensagem;
     @EJB
     private Produtos produtosDaBaseDeDados;
     
     public String addProduto(Produto produto){
         carrinho.addProduto(produto);
+        this.mensagem = "";
         return null;
     }
     
@@ -35,6 +37,22 @@ public class CarrinhoController implements Serializable{
         return null;
     }
     
+    public String cancelarPedido (){
+        carrinho.cancelarPedido();
+        mensagem = "Pedido cancelado";
+        return null;
+    }
+    
+    public String confirmarPedido(){
+        carrinho.confirmarPedido();
+        mensagem = "Pedido confirmado";
+        return null;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
     public Produto getProdutoDestaque (){
         try{
             return produtosDaBaseDeDados.getDestaque();

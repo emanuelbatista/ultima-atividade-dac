@@ -1,13 +1,13 @@
 package edu.ifpb.dac.ejb;
 
-import edu.ifpb.dac.Pedido;
 import edu.ifpb.dac.Produto;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import javax.ejb.EJB;
+import javax.annotation.Resource;
 import javax.ejb.Stateful;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSContext;
+import javax.jms.Queue;
 
 /**
  *
@@ -18,6 +18,10 @@ import javax.ejb.Stateful;
 public class Carrinho {
 
     private Set<Produto> produtosDoUsuario = new HashSet<>();
+    @Resource(lookup = "jms/connectionFactory")
+    private ConnectionFactory connectionFactory;
+    @Resource(lookup = "queue/pedido-queue")
+    private Queue fila;
     
     public void addProduto (Produto produto){
         produtosDoUsuario.add(produto);
@@ -29,6 +33,19 @@ public class Carrinho {
 
     public Set<Produto> getProdutosDoUsuario() {
         return produtosDoUsuario;
+    }
+    
+    public void cancelarPedido (){
+        this.produtosDoUsuario = new HashSet<>();
+    }
+    
+    public void confirmarPedido(){
+//        TODO: lógica de confirmar pedido
+    }
+    
+    public void mensagemParaCartaoDeCredito(){
+        try(JMSContext context = connectionFactory.createContext()){
+        }
     }
 
 }

@@ -9,10 +9,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>ads-dac-atividade13</module>
+        <module>cartao-credito</module>
     </modules>
 
     <name>Atividade</name>
-
+    
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
